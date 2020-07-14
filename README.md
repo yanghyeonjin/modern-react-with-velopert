@@ -1,2 +1,2 @@
-# Modern React With Velopert
-https://react.vlpt.us/
+# Modern React with Velopert
+리액트 연습 - https://react.vlpt.us/
