@@ -4,6 +4,7 @@ import Hello from './components/Hello';
 import Counter from './components/Counter';
 import InputSample from './components/InputSample';
 import User from './components/User';
+import { useRef } from 'react';
 
 function App() {
   const users = [
@@ -23,6 +24,13 @@ function App() {
       email: 'liz@example.com'
     }
   ];
+
+  const nextId = useRef(4); // 화면에 보여주지 않아도 되는 변수를 관리할 수도 있다.
+
+  const onCreate = () => {
+    // 배열에 항목 추가
+    nextId.current += 1;
+  }
 
   return (
     <div>
