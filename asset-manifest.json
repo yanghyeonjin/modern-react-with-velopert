@@ -1,23 +1,22 @@
 {
   "files": {
-    "main.css": "/modern-react-with-velopert/static/css/main.5f361e03.chunk.css",
-    "main.js": "/modern-react-with-velopert/static/js/main.aa6b0a69.chunk.js",
-    "main.js.map": "/modern-react-with-velopert/static/js/main.aa6b0a69.chunk.js.map",
+    "main.css": "/modern-react-with-velopert/static/css/main.1edf21fd.chunk.css",
+    "main.js": "/modern-react-with-velopert/static/js/main.29ffad66.chunk.js",
+    "main.js.map": "/modern-react-with-velopert/static/js/main.29ffad66.chunk.js.map",
     "runtime-main.js": "/modern-react-with-velopert/static/js/runtime-main.e00b80b9.js",
     "runtime-main.js.map": "/modern-react-with-velopert/static/js/runtime-main.e00b80b9.js.map",
-    "static/js/2.2c9939a6.chunk.js": "/modern-react-with-velopert/static/js/2.2c9939a6.chunk.js",
-    "static/js/2.2c9939a6.chunk.js.map": "/modern-react-with-velopert/static/js/2.2c9939a6.chunk.js.map",
+    "static/js/2.c292ee71.chunk.js": "/modern-react-with-velopert/static/js/2.c292ee71.chunk.js",
+    "static/js/2.c292ee71.chunk.js.map": "/modern-react-with-velopert/static/js/2.c292ee71.chunk.js.map",
     "index.html": "/modern-react-with-velopert/index.html",
-    "precache-manifest.094afd76461497472226307ce67b5fc5.js": "/modern-react-with-velopert/precache-manifest.094afd76461497472226307ce67b5fc5.js",
+    "precache-manifest.2c955c2fc576a737984243781be9f2ca.js": "/modern-react-with-velopert/precache-manifest.2c955c2fc576a737984243781be9f2ca.js",
     "service-worker.js": "/modern-react-with-velopert/service-worker.js",
-    "static/css/main.5f361e03.chunk.css.map": "/modern-react-with-velopert/static/css/main.5f361e03.chunk.css.map",
-    "static/js/2.2c9939a6.chunk.js.LICENSE.txt": "/modern-react-with-velopert/static/js/2.2c9939a6.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/modern-react-with-velopert/static/media/logo.5d5d9eef.svg"
+    "static/css/main.1edf21fd.chunk.css.map": "/modern-react-with-velopert/static/css/main.1edf21fd.chunk.css.map",
+    "static/js/2.c292ee71.chunk.js.LICENSE.txt": "/modern-react-with-velopert/static/js/2.c292ee71.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.e00b80b9.js",
-    "static/js/2.2c9939a6.chunk.js",
-    "static/css/main.5f361e03.chunk.css",
-    "static/js/main.aa6b0a69.chunk.js"
+    "static/js/2.c292ee71.chunk.js",
+    "static/css/main.1edf21fd.chunk.css",
+    "static/js/main.29ffad66.chunk.js"
   ]
 }
