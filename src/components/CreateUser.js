@@ -1,6 +1,28 @@
-import React, { memo } from 'react';
+import React, { memo, useContext, useCallback, useRef } from 'react';
+import useInput from '../hooks/useInput';
+import { UserDispatch } from '../App';
 
-function CreateUser({ username, email, onChange, onCreate }) {
+function CreateUser() {
+    const [form, onChange, reset] = useInput({
+        username: '',
+        email: ''
+    });
+    const { username, email } = form;
+    const dispatch = useContext(UserDispatch);
+    const nextId = useRef(4);
+
+    const onCreate = useCallback(() => {
+        dispatch({
+            type: 'CREATE_USER',
+            id: nextId.current,
+            username,
+            email
+        })
+
+        reset();
+        nextId.current += 1;
+    }, [email, username, reset, dispatch]);
+
     return (
         <div>
             <input

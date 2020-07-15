@@ -1,12 +1,7 @@
-import React from 'react';
+import React, { useMemo, useReducer, createContext } from 'react';
 
 import User from './components/User';
-import { useRef } from 'react';
 import CreateUser from './components/CreateUser';
-import { useMemo } from 'react';
-import { useCallback } from 'react';
-import { useReducer } from 'react';
-import useInput from './hooks/useInput';
 
 
 const initialState = {
@@ -67,54 +62,25 @@ function countActiveUsers(users) {
   return users.filter((user) => user.active).length;
 }
 
+
+// Context API 사용
+export const UserDispatch = createContext(null);
+
+
+
 function App() {
-  const [form, onChange, reset] = useInput({
-    username: '',
-    email: ''
-  });
-  const { username, email } = form;
   const [state, dispatch] = useReducer(reducer, initialState);
   const { users } = state;
-
-  const nextId = useRef(4);
-
-
-  const onCreate = useCallback(() => {
-    dispatch({
-      type: 'CREATE_USER',
-      id: nextId.current,
-      username,
-      email
-    })
-
-    reset();
-    nextId.current += 1;
-  }, [email, username, reset]);
-
-  const onToggle = useCallback((id) => {
-    dispatch({
-      type: 'TOGGLE_USER',
-      id
-    })
-  }, []);
-
-  const onRemove = useCallback((id) => {
-    dispatch({
-      type: 'REMOVE_USER',
-      id
-    })
-  }, [])
-
 
   const count = useMemo(() => countActiveUsers(users), [users]);
 
 
   return (
-    <div>
-      <CreateUser username={username} email={email} onChange={onChange} onCreate={onCreate} />
-      {users.map(user => <User key={user.id} user={user} onRemove={onRemove} onToggle={onToggle} />)}
+    <UserDispatch.Provider value={dispatch}>
+      <CreateUser />
+      {users.map(user => <User key={user.id} user={user} />)}
       <div>활성사용자 수: {count}</div>
-    </div>
+    </UserDispatch.Provider>
   );
 }
 

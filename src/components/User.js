@@ -1,8 +1,11 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect, useContext, useCallback } from 'react';
 import './User.css';
-import { useEffect } from 'react';
 
-function User({ user, onRemove, onToggle }) {
+// Context
+import { UserDispatch } from '../App';
+
+function User({ user }) {
+    const dispatch = useContext(UserDispatch);
     const { id, username, email, active } = user;
 
     useEffect(() => {
@@ -14,6 +17,24 @@ function User({ user, onRemove, onToggle }) {
             console.log(user);
         };
     }, [user]);
+
+
+
+    const onToggle = useCallback((id) => {
+        dispatch({
+            type: 'TOGGLE_USER',
+            id
+        })
+    }, [dispatch])
+
+    const onRemove = useCallback((id) => {
+        dispatch({
+            type: 'REMOVE_USER',
+            id
+        })
+    }, [dispatch])
+
+
 
     return (
         <div>
