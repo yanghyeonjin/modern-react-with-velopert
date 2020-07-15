@@ -19,17 +19,20 @@ function App() {
     {
       id: 1,
       username: 'velopert',
-      email: 'public.velopert@gmail.com'
+      email: 'public.velopert@gmail.com',
+      active: true
     },
     {
       id: 2,
       username: 'tester',
-      email: 'tester@example.com'
+      email: 'tester@example.com',
+      active: false
     },
     {
       id: 3,
       username: 'liz',
-      email: 'liz@example.com'
+      email: 'liz@example.com',
+      active: false
     }
   ]);
 
@@ -76,6 +79,13 @@ function App() {
     setUsers(users.filter((user) => user.id !== id));
   }
 
+  // 계정명 클릭했을 때, 글자색 change
+  const onToggle = (id) => {
+    // id와 같으면 해당 user 객체의 active만 반대로 바꾸기
+    setUsers(users.map(user => user.id === id ? { ...user, active: !user.active } : user
+    ))
+  }
+
 
 
 
@@ -90,7 +100,7 @@ function App() {
       <CreateUser username={username} email={email} onChange={onChange} onCreate={onCreate} />
 
       {/* 배열 렌더링 */}
-      {users.map(user => <User key={user.id} user={user} onRemove={onRemove} />)}
+      {users.map(user => <User key={user.id} user={user} onRemove={onRemove} onToggle={onToggle} />)}
     </div>
   );
 }
