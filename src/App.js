@@ -53,8 +53,8 @@ function App() {
     });
   };
 
+  // 배열에 유저 추가
   const onCreate = () => {
-    // 배열에 항목 추가
     const user = {
       id: nextId.current,
       username,
@@ -62,12 +62,18 @@ function App() {
     };
     setUsers([...users, user]);
 
-    // 항목 추가 완료 후 input value 지우기, 다음 id 증가
+    // 추가 완료 후 input value 지우기, 다음 id 증가
     setInputs({
       username: '',
       email: ''
     });
     nextId.current += 1;
+  }
+
+  // 배열에 특정 원소 삭제
+  const onRemove = (id) => {
+    // user.id 가 파라미터로 일치하지 않는 원소만 추출해서 새로운 배열을 만듬
+    setUsers(users.filter((user) => user.id !== id));
   }
 
 
@@ -84,7 +90,7 @@ function App() {
       <CreateUser username={username} email={email} onChange={onChange} onCreate={onCreate} />
 
       {/* 배열 렌더링 */}
-      {users.map(user => <User key={user.id} user={user} />)}
+      {users.map(user => <User key={user.id} user={user} onRemove={onRemove} />)}
     </div>
   );
 }
