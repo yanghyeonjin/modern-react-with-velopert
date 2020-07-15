@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { useRef } from 'react';
 
 function InputSample() {
     const [inputs, setInputs] = useState({
@@ -8,6 +9,8 @@ function InputSample() {
     });
 
     const { username, nickname } = inputs;
+
+    const refUsername = useRef();
 
     const onChange = (e) => {
         const { name, value } = e.target;
@@ -22,10 +25,13 @@ function InputSample() {
             username: '',
             nickname: ''
         })
+
+        // 초기화 했을 때, username에 포커스 가도록
+        refUsername.current.focus();
     }
     return (
         <div>
-            <input placeholder="이름" name="username" value={username} onChange={onChange} />
+            <input placeholder="이름" name="username" value={username} onChange={onChange} ref={refUsername} />
             <input placeholder="닉네임" name="nickname" value={nickname} onChange={onChange} />
             <button onClick={reset}>초기화</button>
             <div>
