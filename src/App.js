@@ -6,13 +6,10 @@ import CreateUser from './components/CreateUser';
 import { useMemo } from 'react';
 import { useCallback } from 'react';
 import { useReducer } from 'react';
+import useInput from './hooks/useInput';
 
 
 const initialState = {
-  inputs: {
-    username: '',
-    email: ''
-  },
   users: [
     {
       id: 1,
@@ -37,14 +34,6 @@ const initialState = {
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'CHANGE_INPUT':
-      return {
-        ...state,
-        inputs: {
-          ...state.inputs,
-          [action.name]: action.value
-        }
-      }
     case 'CREATE_USER':
       return {
         ...state,
@@ -79,22 +68,16 @@ function countActiveUsers(users) {
 }
 
 function App() {
+  const [form, onChange, reset] = useInput({
+    username: '',
+    email: ''
+  });
+  const { username, email } = form;
   const [state, dispatch] = useReducer(reducer, initialState);
   const { users } = state;
-  const { username, email } = state.inputs;
 
   const nextId = useRef(4);
 
-
-  // input value change
-  const onChange = useCallback((e) => {
-    const { name, value } = e.target;
-    dispatch({
-      type: 'CHANGE_INPUT',
-      name,
-      value
-    })
-  }, []);
 
   const onCreate = useCallback(() => {
     dispatch({
@@ -104,8 +87,9 @@ function App() {
       email
     })
 
+    reset();
     nextId.current += 1;
-  }, [email, username]);
+  }, [email, username, reset]);
 
   const onToggle = useCallback((id) => {
     dispatch({
