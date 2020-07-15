@@ -6,6 +6,14 @@ import InputSample from './components/InputSample';
 import User from './components/User';
 import { useRef, useState } from 'react';
 import CreateUser from './components/CreateUser';
+import { useMemo } from 'react';
+
+
+
+function countActiveUsers(users) {
+  console.log('활성 사용자 수 세는 중...');
+  return users.filter((user) => user.active).length;
+}
 
 function App() {
   // state
@@ -89,6 +97,12 @@ function App() {
 
 
 
+  // 기타 변수
+  const count = useMemo(() => countActiveUsers(users), [users]); // users 값의 변동이 있을 때에만 새로운 count를 만든다.
+
+
+
+
 
   return (
     <div>
@@ -101,6 +115,7 @@ function App() {
 
       {/* 배열 렌더링 */}
       {users.map(user => <User key={user.id} user={user} onRemove={onRemove} onToggle={onToggle} />)}
+      <div>활성사용자 수: {count}</div>
     </div>
   );
 }
