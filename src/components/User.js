@@ -1,7 +1,20 @@
 import React from 'react';
 import './User.css';
+import { useEffect } from 'react';
 
-function User({ user: { id, username, email, active }, onRemove, onToggle }) {
+function User({ user, onRemove, onToggle }) {
+    const { id, username, email, active } = user;
+
+    useEffect(() => {
+        console.log('user 값이 설정됨.')
+        console.log(user);
+
+        return () => {
+            console.log('user 가 바뀌기 전..');
+            console.log(user);
+        };
+    }, [user]);
+
     return (
         <div>
             <b className={active ? 'username active' : 'username'} onClick={() => onToggle(id)}>{username}</b> <span>({email})</span>
