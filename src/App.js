@@ -1,12 +1,10 @@
 import React from 'react';
 
-import Hello from './components/Hello';
-import Counter from './components/Counter';
-import InputSample from './components/InputSample';
 import User from './components/User';
 import { useRef, useState } from 'react';
 import CreateUser from './components/CreateUser';
 import { useMemo } from 'react';
+import { useCallback } from 'react';
 
 
 
@@ -56,16 +54,16 @@ function App() {
 
   // custom functions
   // input change 이벤트
-  const onChange = e => {
+  const onChange = useCallback(e => {
     const { name, value } = e.target;
     setInputs({
       ...inputs,
       [name]: value
     });
-  };
+  }, [inputs]);
 
   // 배열에 유저 추가
-  const onCreate = () => {
+  const onCreate = useCallback(() => {
     const user = {
       id: nextId.current,
       username,
@@ -79,20 +77,20 @@ function App() {
       email: ''
     });
     nextId.current += 1;
-  }
+  }, [email, username, users])
 
   // 배열에 특정 원소 삭제
-  const onRemove = (id) => {
+  const onRemove = useCallback((id) => {
     // user.id 가 파라미터로 일치하지 않는 원소만 추출해서 새로운 배열을 만듬
     setUsers(users.filter((user) => user.id !== id));
-  }
+  }, [users]);
 
   // 계정명 클릭했을 때, 글자색 change
-  const onToggle = (id) => {
+  const onToggle = useCallback((id) => {
     // id와 같으면 해당 user 객체의 active만 반대로 바꾸기
     setUsers(users.map(user => user.id === id ? { ...user, active: !user.active } : user
     ))
-  }
+  }, [users]);
 
 
 
@@ -106,11 +104,6 @@ function App() {
 
   return (
     <div>
-      <Hello />
-      <Counter />
-      <InputSample />
-
-
       <CreateUser username={username} email={email} onChange={onChange} onCreate={onCreate} />
 
       {/* 배열 렌더링 */}
