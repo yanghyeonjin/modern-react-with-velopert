@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import './User.css';
 import { useEffect } from 'react';
 
@@ -23,4 +23,4 @@ function User({ user, onRemove, onToggle }) {
     )
 }
 
-export default User;
+export default memo(User);
