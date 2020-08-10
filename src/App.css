@@ -1,5 +1,25 @@
+:root {
+  --blue: #228be6;
+  --blue-light: #4dabf7;
+  --blue-dark: #1971c2;
+  --gray: #adb5bd;
+  --gray-light: #dee2e6;
+  --gray-dark: #495057;
+  --pink: #f06595;
+  --pink-light: #faa2c1;
+  --pink-dark: #d6336c;
+}
+
 .App {
-  text-align: center;
+  width: 512px;
+  margin: 0 auto;
+  margin-top: 4rem;
+  border: 1px solid black;
+  padding: 1rem;
+}
+
+.buttons + .buttons {
+  margin-top: 1rem;
 }
 
 .App-logo {
