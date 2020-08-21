@@ -1,8 +1,0 @@
-.username {
-    cursor: pointer;
-    color: black;
-}
-
-.username.active {
-    color: green;
-}
