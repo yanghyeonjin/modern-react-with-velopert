@@ -6,9 +6,14 @@ import './App.css';
 
 // component
 import TodoTemplate from './components/TodoTemplate';
+import TodoHead from './components/TodoHead';
 
 function App() {
-    return <TodoTemplate>안녕하세요</TodoTemplate>;
+    return (
+        <TodoTemplate>
+            <TodoHead />
+        </TodoTemplate>
+    );
 }
 
 export default App;
