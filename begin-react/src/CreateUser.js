@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 function CreateUser({ username, email, onChange, onCreate }) {
+    useEffect(() => {
+        console.log('CreateUser render');
+    });
     return (
         <div>
             <input name="username" placeholder="계정명" onChange={onChange} value={username} />
@@ -10,4 +13,4 @@ function CreateUser({ username, email, onChange, onCreate }) {
     );
 }
 
-export default CreateUser;
+export default React.memo(CreateUser);
