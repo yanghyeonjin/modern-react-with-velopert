@@ -1,6 +1,6 @@
 # 벨로퍼트와 함께하는 모던 리액트
 
-리액트 연습 - <https://react.vlpt.us/>
+<https://react.vlpt.us/>
 
 ```bash
 📁modern-react-with-velopert
