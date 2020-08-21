@@ -1,14 +1,28 @@
 // module
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 
 // component
 import UserList from './UserList';
+import CreateUser from './CreateUser';
 
 // css
 import './App.css';
 
 function App() {
-    const users = [
+    const [inputs, setInputs] = useState({
+        username: '',
+        email: '',
+    });
+    const { username, email } = inputs;
+    const onChange = (e) => {
+        const { name, value } = e.target;
+        setInputs({
+            ...inputs,
+            [name]: value,
+        });
+    };
+
+    const [users, setUsers] = useState([
         {
             id: 1,
             username: 'velopert',
@@ -24,18 +38,30 @@ function App() {
             username: 'liz',
             email: 'liz@example.com',
         },
-    ];
+    ]);
 
     const nextId = useRef(4);
-
     const onCreate = () => {
-        // 나중에 구현 할 배열에 항목 추가하는 로직
-        // ...
+        const user = {
+            id: nextId.current,
+            username,
+            email,
+        };
+        setUsers([...users, user]);
 
+        setInputs({
+            username: '',
+            email: '',
+        });
         nextId.current += 1;
     };
 
-    return <UserList users={users} />;
+    return (
+        <>
+            <CreateUser username={username} email={email} onChange={onChange} onCreate={onCreate} />
+            <UserList users={users} />
+        </>
+    );
 }
 
 export default App;
