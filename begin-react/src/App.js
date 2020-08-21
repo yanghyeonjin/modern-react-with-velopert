@@ -2,13 +2,13 @@
 import React from 'react';
 
 // component
-import InputSample from './InputSample';
+import UserList from './UserList';
 
 // css
 import './App.css';
 
 function App() {
-    return <InputSample />;
+    return <UserList />;
 }
 
 export default App;
