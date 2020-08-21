@@ -5,4 +5,5 @@
 ```bash
 📁modern-react-with-velopert
  |--- 📁begin-react # 리액트 입문
+ |--- 📁error-catch # 에러 잡아내기
 ```
