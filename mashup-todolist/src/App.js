@@ -10,13 +10,18 @@ import TodoHead from './components/TodoHead';
 import TodoList from './components/TodoList';
 import TodoCreate from './components/TodoCreate';
 
+// Context API 사용
+import { TodoProvider } from './TodoContext';
+
 function App() {
     return (
-        <TodoTemplate>
-            <TodoHead />
-            <TodoList />
-            <TodoCreate />
-        </TodoTemplate>
+        <TodoProvider>
+            <TodoTemplate>
+                <TodoHead />
+                <TodoList />
+                <TodoCreate />
+            </TodoTemplate>
+        </TodoProvider>
     );
 }
 
