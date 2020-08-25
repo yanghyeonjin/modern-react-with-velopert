@@ -27,7 +27,7 @@ function reducer(state, action) {
 
 // callback: API 요청을 시작하는 함수
 // useEffect의 deps로 사용할 목적
-function useAsync(callback, deps = []) {
+function useAsync(callback, deps = [], skip = false) {
     const [state, dispatch] = useReducer(reducer, { loading: false, data: null, error: null });
 
     // user 목록 불러오는 API
@@ -43,6 +43,7 @@ function useAsync(callback, deps = []) {
     };
 
     useEffect(() => {
+        if (skip) return;
         fetchData();
     }, deps);
 
