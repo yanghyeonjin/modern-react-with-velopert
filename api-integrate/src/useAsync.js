@@ -36,7 +36,7 @@ function useAsync(callback, deps = [], skip = false) {
         dispatch({ type: 'LOADING' });
         try {
             const data = await callback();
-            dispatch({ type: 'SUCCESS', data }); // 데이터는 response.data안에 들어있습니다.
+            dispatch({ type: 'SUCCESS', data });
         } catch (e) {
             dispatch({ type: 'ERROR', error: e });
         }
