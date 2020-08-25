@@ -6,6 +6,7 @@ import './App.css';
 // component
 import Home from './Home';
 import About from './About';
+import Profile from './Profile';
 
 function App() {
     return (
@@ -22,6 +23,7 @@ function App() {
 
             <Route path="/" component={Home} exact={true} />
             <Route path="/about" component={About} />
+            <Route path="/profiles/:username" component={Profile} />
         </div>
     );
 }
