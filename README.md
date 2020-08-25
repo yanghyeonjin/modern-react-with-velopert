@@ -4,6 +4,7 @@
 
 ```bash
 📁modern-react-with-velopert
+ |--- 📁api-integrate           # API 연동하기
  |--- 📁begin-react             # 리액트 입문
  |--- 📁error-catch             # 에러 잡아내기
  |--- 📁mashup-todolist         # 투두리스트 만들기
