@@ -8,6 +8,7 @@
  |--- 📁begin-react             # 리액트 입문
  |--- 📁error-catch             # 에러 잡아내기
  |--- 📁learn-redux             # 리덕스
+ |--- 📁learn-redux-middleware  # 리덕스 미들웨어
  |--- 📁mashup-todolist         # 투두리스트 만들기
  |--- 📁router-tutorial         # 라우터
  |--- 📁styling-with-css-module # CSS Module
