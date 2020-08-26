@@ -14,4 +14,4 @@ function TodoListContainer() {
     return <TodoList todos={todos} onToggle={onToggle} />;
 }
 
-export default TodoListContainer;
+export default React.memo(TodoListContainer);

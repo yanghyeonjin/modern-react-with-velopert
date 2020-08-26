@@ -23,4 +23,4 @@ function Todos({ onCreate }) {
     );
 }
 
-export default Todos;
+export default React.memo(Todos);

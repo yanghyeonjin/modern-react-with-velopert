@@ -20,4 +20,4 @@ function Counter({ number, diff, onIncrease, onDecrease, onSetDiff }) {
     );
 }
 
-export default Counter;
+export default React.memo(Counter);

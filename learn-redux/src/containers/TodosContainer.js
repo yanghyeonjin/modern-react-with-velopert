@@ -11,4 +11,4 @@ function TodosContainer() {
     return <Todos onCreate={onCreate} />;
 }
 
-export default TodosContainer;
+export default React.memo(TodosContainer);
