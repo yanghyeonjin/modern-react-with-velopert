@@ -6,6 +6,14 @@ const DECREASE = 'counter/DECREASE';
 export const increase = () => ({ type: INCREASE });
 export const decrease = () => ({ type: DECREASE });
 
+// thunk 함수
+export const increaseAsync = () => (dispatch) => {
+    setTimeout(() => dispatch(increase()), 1000); // 액션이 dispatch 되는 것을 1초 딜레이
+};
+export const decreaseAsync = () => (dispatch) => {
+    setTimeout(() => dispatch(decrease()), 1000);
+};
+
 // 초깃값
 const initialState = 0;
 
