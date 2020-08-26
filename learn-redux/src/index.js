@@ -5,13 +5,16 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 import rootReducer from './modules/index';
 
 const store = createStore(rootReducer); // 스토어를 만듭니다.
 
 ReactDOM.render(
     <React.StrictMode>
-        <App />
+        <Provider store={store}>
+            <App />
+        </Provider>
     </React.StrictMode>,
     document.getElementById('root')
 );
